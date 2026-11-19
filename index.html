@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Портфолио UX/UI-дизайнера. Избранные проекты.">
+  <meta name="theme-color" content="#eeeeee">
+  <link rel="icon" href="data:,">
+  <title>Портфолио UX/UI-дизайнера</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./scroll.js" defer></script>
+</head>
+<body>
+  <main id="portfolio" class="hero">
+    <div class="viewport">
+      <nav class="nav" aria-label="Разделы портфолио">
+        <span class="nav-item" title="Раздел пока недоступен">Обо мне</span>
+        <a class="nav-item" href="#portfolio" aria-current="page">Портфолио</a>
+        <span class="nav-item" title="Раздел пока недоступен">Контакты</span>
+      </nav>
+
+      <div class="scene">
+        <div class="backdrop" aria-hidden="true">
+          <img class="backdrop-ux" src="./assets/ux-ui.svg" alt="">
+          <img class="backdrop-design" src="./assets/design.svg" alt="">
+        </div>
+
+        <h1 class="headline">
+          <img src="./assets/portfolio.svg" alt="Portfolio">
+        </h1>
+
+        <div class="covers" aria-hidden="true">
+          <img class="cover" src="./assets/price-index.webp" data-title="Индекс цен" alt="">
+          <img class="cover" src="./assets/land-search.webp" data-title="Подбор земельного участка" alt="">
+          <img class="cover" src="./assets/good-wood.webp" data-title="Good Wood" alt="">
+          <img class="cover" src="./assets/design-system.webp" data-title="Дизайн система" alt="">
+        </div>
+
+        <div class="project">
+          <p id="project-title" class="project-title">Дизайн система</p>
+          <a class="project-link" href="./assets/design-system.webp" aria-describedby="project-title">
+            Смотреть проект
+            <img src="./assets/arrow.svg" alt="" width="15" height="15">
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <dialog class="project-dialog" aria-labelledby="preview-title">
+    <div class="preview">
+      <div class="preview-bar">
+        <h2 id="preview-title"></h2>
+        <form method="dialog">
+          <button type="submit" class="close-preview">Закрыть</button>
+        </form>
+      </div>
+      <img class="preview-cover" alt="">
+    </div>
+  </dialog>
+</body>
+</html>
