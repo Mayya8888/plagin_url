@@ -94,12 +94,14 @@ img {
 
 .nav-label {
   display: block;
+  flex: none;
   inline-size: 0;
-  overflow: hidden;
+  opacity: 0;
 }
 
 .nav-item[data-selected] .nav-label {
   inline-size: max-content;
+  opacity: 1;
 }
 
 .nav-label-text {

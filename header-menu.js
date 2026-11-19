@@ -43,9 +43,11 @@
   let lastFrame;
 
   function paintItems() {
+    // Fade in the whole label near full width, within the item's 12px end padding.
+    const fadeDistance = 8;
     for (const { label, fullWidth, icon, labelWidth, iconScale } of items) {
       const width = Math.max(0, labelWidth.value);
-      const reveal = Math.min(1, Math.max(0, (width / fullWidth) * 1.4 - 0.4));
+      const reveal = Math.min(1, Math.max(0, 1 - (fullWidth - width) / fadeDistance));
       label.style.inlineSize = `${width}px`;
       label.style.opacity = reveal;
       icon.style.transform = `scale(${iconScale.value})`;
