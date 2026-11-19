@@ -12,4 +12,4 @@
 
 За размеры, позиции и скорость движения отвечают `styles.css` и `scroll.js`.
 
-Фоновые надписи «UX/UI» и «DESIGN» меняются местами по мотивам [Goo Morph](https://designbookmark.com/motion#db-goo-morph). Эффект настраивается в `goo-morph.js`.
+Меню в шапке раскрывает подпись выбранного пункта и перемещает подсветку с анимацией по мотивам [Bottom Bar](https://designbookmark.com/motion#db-bottom-bar). Пружины меню настроены в `header-menu.js`.

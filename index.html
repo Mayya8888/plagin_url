@@ -9,32 +9,41 @@
   <title>Портфолио UX/UI-дизайнера</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./scroll.js" defer></script>
-  <script src="./goo-morph.js" defer></script>
+  <script src="./header-menu.js" defer></script>
 </head>
 <body>
   <main id="portfolio" class="hero">
     <div class="viewport">
       <nav class="nav" aria-label="Разделы портфолио">
-        <span class="nav-item" title="Раздел пока недоступен">Обо мне</span>
-        <a class="nav-item" href="#portfolio" aria-current="page">Портфолио</a>
-        <span class="nav-item" title="Раздел пока недоступен">Контакты</span>
+        <span class="nav-highlight" aria-hidden="true"></span>
+        <button class="nav-item" type="button" aria-describedby="nav-unavailable" title="Обо мне">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.5"/>
+            <path d="M5 20v-1a7 5 0 0 1 14 0v1"/>
+          </svg>
+          <span class="nav-label"><span class="nav-label-text">Обо мне</span></span>
+        </button>
+        <a class="nav-item" href="#portfolio" aria-current="page" data-selected title="Портфолио">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="7" width="18" height="13" rx="2"/>
+            <path d="M8 7V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M3 12a21 21 0 0 0 18 0"/>
+          </svg>
+          <span class="nav-label"><span class="nav-label-text">Портфолио</span></span>
+        </a>
+        <button class="nav-item" type="button" aria-describedby="nav-unavailable" title="Контакты">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="m4 7 8 6 8-6"/>
+          </svg>
+          <span class="nav-label"><span class="nav-label-text">Контакты</span></span>
+        </button>
+        <span id="nav-unavailable" hidden>Раздел появится позже.</span>
       </nav>
 
       <div class="scene">
-        <svg class="morph-filter" width="0" height="0" aria-hidden="true">
-          <filter id="backdrop-melt" color-interpolation-filters="sRGB">
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140"/>
-          </filter>
-        </svg>
         <div class="backdrop" aria-hidden="true">
-          <div class="backdrop-state">
-            <img class="backdrop-ux backdrop-top" src="./assets/ux-ui.svg" alt="">
-            <img class="backdrop-design backdrop-bottom" src="./assets/design.svg" alt="">
-          </div>
-          <div class="backdrop-state" hidden>
-            <img class="backdrop-design backdrop-top" src="./assets/design.svg" alt="">
-            <img class="backdrop-ux backdrop-bottom" src="./assets/ux-ui.svg" alt="">
-          </div>
+          <img class="backdrop-ux" src="./assets/ux-ui.svg" alt="">
+          <img class="backdrop-design" src="./assets/design.svg" alt="">
         </div>
 
         <h1 class="headline">
