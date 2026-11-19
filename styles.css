@@ -18,8 +18,11 @@ img {
   display: block;
 }
 
-.hero.is-animated {
-  min-block-size: 308svh;
+.hero.is-animated::after {
+  content: "";
+  display: block;
+  block-size: calc(var(--cover-transitions) * min(62vh, 512px));
+  block-size: calc(var(--cover-transitions) * min(62svh, 512px));
 }
 
 .viewport {
@@ -137,6 +140,14 @@ img {
   inset-inline-start: 50%;
 }
 
+.covers {
+  position: absolute;
+  inset: 0;
+  inset-block-end: calc(112 * var(--unit));
+  overflow: clip;
+  pointer-events: none;
+}
+
 .backdrop img {
   transform: translateX(-50%);
   pointer-events: none;
@@ -172,7 +183,6 @@ img {
   --blur: 0px;
   --opacity: 1;
   --layer: 10;
-  --shift: 0;
   z-index: var(--layer);
   inset-block-start: 0;
   inline-size: calc(235 * var(--unit));
@@ -180,7 +190,7 @@ img {
   object-fit: cover;
   transform-origin: center top;
   transform:
-    translate(calc(-50% + var(--shift) * var(--unit)), calc(var(--top) * var(--unit)))
+    translate(-50%, calc(var(--top) * var(--unit)))
     scale(calc(var(--size) / 235));
   filter: blur(var(--blur));
   opacity: var(--opacity);
@@ -213,7 +223,6 @@ img {
 .cover.is-active {
   z-index: 11;
   filter: none;
-  opacity: 1;
 }
 
 .project {

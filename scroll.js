@@ -1,18 +1,19 @@
 const hero = document.querySelector(".hero");
 const viewport = hero.querySelector(".viewport");
 const covers = Array.from(hero.querySelectorAll(".cover")).reverse();
+const transitionCount = covers.length - 1;
 const link = hero.querySelector(".project-link");
 const projectTitle = hero.querySelector(".project-title");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 // These positions come from the supplied 1440 × 722 frame.
 const stack = [
-  { top: 360.5, size: 235, blur: 0, opacity: 1, shift: 0 },
-  { top: 206, size: 107, blur: 1, opacity: 1, shift: 0 },
-  { top: 186.5, size: 87, blur: 2, opacity: 0.9, shift: 0 },
-  { top: 169, size: 75, blur: 3, opacity: 0.9, shift: 0 },
+  { top: 360.5, size: 235, blur: 0, opacity: 1 },
+  { top: 206, size: 107, blur: 1, opacity: 1 },
+  { top: 186.5, size: 87, blur: 2, opacity: 0.9 },
+  { top: 169, size: 75, blur: 3, opacity: 0.9 },
 ];
-const outgoing = { top: 445, size: 175, blur: 3, opacity: 0, shift: -115 };
+const outgoing = { top: 650, size: 235, blur: 0, opacity: 0 };
 
 let current = -1;
 let scheduled = false;
@@ -23,9 +24,9 @@ const interpolate = (from, to, amount) => from + (to - from) * amount;
 function update() {
   scheduled = false;
 
-  const distance = Math.max(0, -hero.getBoundingClientRect().top);
-  const stepHeight = Math.min(viewport.clientHeight * 0.62, 512);
-  const progress = clamp(distance / stepHeight, 0, covers.length - 1);
+  const distance = -hero.getBoundingClientRect().top;
+  const scrollRange = hero.offsetHeight - viewport.offsetHeight;
+  const progress = scrollRange > 0 ? clamp(distance / scrollRange, 0, 1) * transitionCount : 0;
   const selected = Math.round(progress);
   const position = reducedMotion.matches ? selected : progress;
 
@@ -41,7 +42,6 @@ function update() {
     cover.style.setProperty("--top", mix("top"));
     cover.style.setProperty("--blur", `${mix("blur")}px`);
     cover.style.setProperty("--opacity", mix("opacity"));
-    cover.style.setProperty("--shift", mix("shift"));
     cover.style.setProperty("--layer", index <= selected ? 10 - index : 4 + selected - index);
   });
 
@@ -70,6 +70,7 @@ function scheduleUpdate() {
   }
 }
 
+hero.style.setProperty("--cover-transitions", transitionCount);
 hero.classList.add("is-animated");
 window.addEventListener("scroll", scheduleUpdate, { passive: true });
 window.addEventListener("resize", scheduleUpdate);
