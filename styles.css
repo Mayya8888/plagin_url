@@ -96,20 +96,49 @@ img {
   inset-inline-start: 50%;
 }
 
+.morph-filter {
+  position: absolute;
+}
+
+.backdrop {
+  --backdrop-top: calc(81 * var(--unit));
+  --backdrop-bottom: calc(368 * var(--unit));
+  position: absolute;
+  inset: 0;
+  inline-size: min(100%, calc(1080 * var(--unit) + 80px));
+  margin-inline: auto;
+  opacity: .06;
+  pointer-events: none;
+}
+
+.backdrop.is-melting {
+  filter: url("#backdrop-melt");
+}
+
+.backdrop-state {
+  position: absolute;
+  inset: 0;
+}
+
 .backdrop img {
   transform: translateX(-50%);
-  pointer-events: none;
+}
+
+.backdrop-top {
+  inset-block-start: var(--backdrop-top);
+}
+
+.backdrop-bottom {
+  inset-block-start: var(--backdrop-bottom);
 }
 
 .backdrop-ux {
   inline-size: calc(864 * var(--unit));
-  inset-block-start: calc(81 * var(--unit));
   margin-inline-start: calc(8 * var(--unit));
 }
 
 .backdrop-design {
   inline-size: calc(1080 * var(--unit));
-  inset-block-start: calc(368 * var(--unit));
 }
 
 .headline {
@@ -223,15 +252,18 @@ a:focus-visible {
     --unit: min(.83px, calc(100svh / 770), calc(100cqw / 455));
   }
 
+  .backdrop {
+    --backdrop-top: calc(101 * var(--unit));
+    --backdrop-bottom: calc(439 * var(--unit));
+  }
+
   .backdrop-ux {
     inline-size: 84cqw;
-    inset-block-start: calc(101 * var(--unit));
     margin-inline-start: 0;
   }
 
   .backdrop-design {
     inline-size: 98cqw;
-    inset-block-start: calc(439 * var(--unit));
   }
 
   .headline {

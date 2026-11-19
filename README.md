@@ -11,3 +11,5 @@
 Чтобы активировать кнопку «Смотреть проект», добавь к нужной обложке в `index.html` атрибут `data-project-url` с адресом проекта.
 
 За размеры, позиции и скорость движения отвечают `styles.css` и `scroll.js`.
+
+Фоновые надписи «UX/UI» и «DESIGN» меняются местами по мотивам [Goo Morph](https://designbookmark.com/motion#db-goo-morph). Эффект настраивается в `goo-morph.js`.

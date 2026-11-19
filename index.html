@@ -9,6 +9,7 @@
   <title>Портфолио UX/UI-дизайнера</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./scroll.js" defer></script>
+  <script src="./goo-morph.js" defer></script>
 </head>
 <body>
   <main id="portfolio" class="hero">
@@ -20,9 +21,20 @@
       </nav>
 
       <div class="scene">
+        <svg class="morph-filter" width="0" height="0" aria-hidden="true">
+          <filter id="backdrop-melt" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140"/>
+          </filter>
+        </svg>
         <div class="backdrop" aria-hidden="true">
-          <img class="backdrop-ux" src="./assets/ux-ui.svg" alt="">
-          <img class="backdrop-design" src="./assets/design.svg" alt="">
+          <div class="backdrop-state">
+            <img class="backdrop-ux backdrop-top" src="./assets/ux-ui.svg" alt="">
+            <img class="backdrop-design backdrop-bottom" src="./assets/design.svg" alt="">
+          </div>
+          <div class="backdrop-state" hidden>
+            <img class="backdrop-design backdrop-top" src="./assets/design.svg" alt="">
+            <img class="backdrop-ux backdrop-bottom" src="./assets/ux-ui.svg" alt="">
+          </div>
         </div>
 
         <h1 class="headline">
