@@ -3,9 +3,6 @@ const viewport = hero.querySelector(".viewport");
 const covers = Array.from(hero.querySelectorAll(".cover")).reverse();
 const link = hero.querySelector(".project-link");
 const projectTitle = hero.querySelector(".project-title");
-const dialog = document.querySelector(".project-dialog");
-const previewTitle = dialog.querySelector("h2");
-const previewCover = dialog.querySelector(".preview-cover");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 // These positions come from the supplied 1440 × 722 frame.
@@ -49,9 +46,20 @@ function update() {
   });
 
   if (current !== selected) {
+    hero.querySelector(".cover.is-active")?.classList.remove("is-active");
     current = selected;
-    projectTitle.textContent = covers[current].dataset.title;
-    link.href = covers[current].getAttribute("src");
+    const activeCover = covers[current];
+    activeCover.classList.add("is-active");
+    projectTitle.textContent = activeCover.dataset.title;
+
+    const projectUrl = activeCover.dataset.projectUrl?.trim();
+    if (projectUrl) {
+      link.setAttribute("href", projectUrl);
+      link.removeAttribute("aria-disabled");
+    } else {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+    }
   }
 }
 
@@ -61,17 +69,6 @@ function scheduleUpdate() {
     requestAnimationFrame(update);
   }
 }
-
-link.addEventListener("click", (event) => {
-  if (typeof dialog.showModal !== "function" || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
-    return;
-  }
-
-  event.preventDefault();
-  previewTitle.textContent = projectTitle.textContent;
-  previewCover.src = link.href;
-  dialog.showModal();
-});
 
 hero.classList.add("is-animated");
 window.addEventListener("scroll", scheduleUpdate, { passive: true });
