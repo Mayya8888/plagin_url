@@ -3,6 +3,7 @@
   const intro = section.querySelector(".about-intro");
   const scene = intro.querySelector(".about-scene");
   const card = section.querySelector(".about-card");
+  const resume = card.querySelector(".about-resume");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   let frame = 0;
 
@@ -19,6 +20,13 @@
 
   function schedule() {
     if (!frame) frame = requestAnimationFrame(paint);
+  }
+
+  resume.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch") resume.classList.add("is-pressed");
+  });
+  for (const type of ["pointerup", "pointercancel", "lostpointercapture"]) {
+    resume.addEventListener(type, () => resume.classList.remove("is-pressed"));
   }
 
   section.classList.add("is-animated");

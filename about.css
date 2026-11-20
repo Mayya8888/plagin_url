@@ -81,6 +81,13 @@
   text-decoration: none;
 }
 
+.about-resume:hover,
+.about-resume:focus-visible,
+.about-resume:active,
+.about-resume.is-pressed {
+  background: #fff;
+}
+
 .about-card.is-revealed {
   animation: about-card-enter 490ms cubic-bezier(.2, .7, .25, 1) both;
 }
