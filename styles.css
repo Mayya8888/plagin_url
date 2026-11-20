@@ -39,8 +39,8 @@ img {
   display: flex;
   align-items: center;
   gap: 4px;
-  position: absolute;
-  z-index: 20;
+  position: fixed;
+  z-index: 30;
   inset-block-start: clamp(16px, 4.3svh, 31px);
   inset-inline-start: 50%;
   inline-size: max-content;
