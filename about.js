@@ -2,8 +2,8 @@
   const section = document.querySelector(".about");
   const intro = section.querySelector(".about-intro");
   const scene = intro.querySelector(".about-scene");
-  const card = section.querySelector(".about-card");
-  const resume = card.querySelector(".about-resume");
+  const details = section.querySelector(".about-details");
+  const resume = details.querySelector(".about-resume");
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   let frame = 0;
 
@@ -13,8 +13,8 @@
     const scroll = -intro.getBoundingClientRect().top;
     const progress = distance > 0 && !reducedMotion.matches ? Math.max(0, Math.min(1, scroll / distance)) : 0;
     section.style.setProperty("--about-progress", progress);
-    if (reducedMotion.matches || (progress >= 0.6 && card.getBoundingClientRect().top < innerHeight - 32)) {
-      card.classList.add("is-revealed");
+    if (reducedMotion.matches || (progress >= 0.6 && details.getBoundingClientRect().top < innerHeight - 32)) {
+      details.classList.add("is-revealed");
     }
   }
 

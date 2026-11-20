@@ -52,9 +52,15 @@
   transform: translate(-50%, calc(-81 * var(--about-unit) * var(--about-progress)));
 }
 
-.about-card {
+.about-details {
   position: relative;
   z-index: 3;
+  display: grid;
+  justify-items: center;
+  gap: 42px;
+}
+
+.about-card {
   inline-size: min(580px, calc(100% - 32px));
   margin: 0 auto;
   border-radius: 12px;
@@ -62,7 +68,7 @@
   padding: 24px clamp(22px, 4vw, 38px) clamp(24px, 4vw, 38px);
 }
 
-.about.is-animated .about-card {
+.about.is-animated .about-details {
   margin-block-start: calc(-69 * var(--about-unit));
 }
 
@@ -71,7 +77,6 @@
   align-items: center;
   gap: 4px;
   inline-size: max-content;
-  margin-inline-start: auto;
   padding: 6px 14px;
   border: 1px solid currentColor;
   border-radius: 999px;
@@ -88,11 +93,11 @@
   background: #fff;
 }
 
-.about-card.is-revealed {
+.about-details.is-revealed {
   animation: about-card-enter 490ms cubic-bezier(.2, .7, .25, 1) both;
 }
 
-.about.is-animated .about-card:not(.is-revealed) {
+.about.is-animated .about-details:not(.is-revealed) {
   opacity: 0;
 }
 
@@ -200,6 +205,10 @@
     --about-scene-height: calc(436 * var(--about-unit) + 58px);
   }
 
+  .about-details {
+    gap: 32px;
+  }
+
   .skill-tray {
     --tray-height: 188px;
   }
@@ -210,15 +219,15 @@
     min-block-size: 0;
   }
 
-  .about-card.is-revealed {
+  .about-details.is-revealed {
     animation: none;
   }
 
-  .about.is-animated .about-card:not(.is-revealed) {
+  .about.is-animated .about-details:not(.is-revealed) {
     opacity: 1;
   }
 
-  .about.is-animated .about-card {
+  .about.is-animated .about-details {
     margin-block-start: 0;
   }
 }
