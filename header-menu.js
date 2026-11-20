@@ -124,15 +124,16 @@
   for (const item of items) {
     item.element.addEventListener("click", () => select(item));
   }
-  const about = document.querySelector("#about");
-  const aboutItem = items.find(item => item.element.hash === "#about");
-  const portfolioItem = items.find(item => item.element.hash === "#portfolio");
-  let visibleSection = portfolioItem;
+  const sections = items.map(item => ({
+    item,
+    section: document.getElementById(item.element.hash.slice(1)),
+  })).reverse();
+  let visibleSection = items[0];
   let sectionFrame = 0;
 
   function updateSection() {
     sectionFrame = 0;
-    const next = about.getBoundingClientRect().top <= innerHeight * 0.8 ? aboutItem : portfolioItem;
+    const next = sections.find(({ section }) => section.getBoundingClientRect().top <= innerHeight * 0.8)?.item ?? items[0];
     if (next === visibleSection) return;
     visibleSection.element.removeAttribute("aria-current");
     visibleSection = next;

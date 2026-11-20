@@ -9,10 +9,12 @@
   <title>Портфолио UX/UI-дизайнера</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./about.css">
+  <link rel="stylesheet" href="./contacts.css">
   <script src="./scroll.js" defer></script>
   <script src="./header-menu.js" defer></script>
   <script src="./about.js" defer></script>
   <script src="./about-skills.js" defer></script>
+  <script src="./contacts.js" defer></script>
 </head>
 <body>
   <nav class="nav" aria-label="Разделы портфолио">
@@ -31,14 +33,13 @@
       </svg>
       <span class="nav-label"><span class="nav-label-text">Обо мне</span></span>
     </a>
-    <button class="nav-item" type="button" aria-describedby="nav-unavailable" title="Контакты">
+    <a class="nav-item" href="#contacts" title="Контакты">
       <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
         <rect x="3" y="5" width="18" height="14" rx="2"/>
         <path d="m4 7 8 6 8-6"/>
       </svg>
       <span class="nav-label"><span class="nav-label-text">Контакты</span></span>
-    </button>
-    <span id="nav-unavailable" hidden>Раздел появится позже.</span>
+    </a>
   </nav>
   <main>
     <section id="portfolio" class="hero" aria-label="Портфолио">
@@ -62,7 +63,7 @@
 
           <div class="project">
             <p id="project-title" class="project-title">Дизайн система</p>
-            <a class="project-link" role="link" aria-disabled="true" aria-describedby="project-title">
+            <a class="project-link pill-link" role="link" aria-disabled="true" aria-describedby="project-title">
               <span>Смотреть проект</span>
               <img src="./assets/arrow.svg" alt="" width="16" height="16">
             </a>
@@ -122,6 +123,24 @@
           </section>
         </div>
       </article>
+    </section>
+
+    <section id="contacts" class="contacts" aria-labelledby="contacts-title">
+      <div class="contacts-light" aria-hidden="true">
+        <div class="contacts-window"></div>
+      </div>
+      <div class="contacts-content">
+        <h2 id="contacts-title" class="contacts-title">
+          <img src="./assets/contact-title.svg" alt="Контакты" width="1144" height="223">
+        </h2>
+        <div class="contacts-qr">
+          <img src="./assets/contact-telegram.png" alt="QR-код для связи в Telegram" width="350" height="350">
+        </div>
+        <a class="pill-link contact-link" href="https://t.me/m_pappaya">
+          <span>Телеграм: @m_pappaya</span>
+          <img src="./assets/arrow.svg" alt="" width="16" height="16">
+        </a>
+      </div>
     </section>
   </main>
 </body>

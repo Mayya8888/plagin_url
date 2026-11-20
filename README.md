@@ -15,3 +15,5 @@
 Меню в шапке раскрывает подпись выбранного пункта и перемещает подсветку с анимацией по мотивам [Bottom Bar](https://designbookmark.com/motion#db-bottom-bar). Пружины меню настроены в `header-menu.js`.
 
 Раздел «Обо мне» открывается из шапки и при прокрутке после портфолио. Физика тегов адаптирована из [Skill Pills Tray от Animorio](https://animorio.com/en/animations/designer-profile-with-skills-in-a-tray-that-tilts/). Текст и теги можно обновить в `index.html`.
+
+В разделе «Контакты» ссылка и QR-код ведут в Telegram. Движение света при прокрутке адаптировано из [Light Through the Blinds от Animorio](https://animorio.com/en/animations/light-through-the-blinds/).
