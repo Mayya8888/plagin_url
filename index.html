@@ -14,6 +14,7 @@
   <script src="./header-menu.js" defer></script>
   <script src="./about.js" defer></script>
   <script src="./about-skills.js" defer></script>
+  <script src="./backdrop-reveal.js" defer></script>
 </head>
 <body>
   <nav class="nav" aria-label="Разделы портфолио">
@@ -45,8 +46,8 @@
       <div class="viewport">
         <div class="scene">
           <div class="backdrop" aria-hidden="true">
-            <img class="backdrop-ux" src="./assets/ux-ui.svg" alt="">
-            <img class="backdrop-design" src="./assets/design.svg" alt="">
+            <img class="backdrop-ux" src="./assets/ux-ui.svg" alt="" data-backdrop-reveal>
+            <img class="backdrop-design" src="./assets/design.svg" alt="" data-backdrop-reveal="from-right">
           </div>
 
           <h1 class="headline">
@@ -74,7 +75,7 @@
     <section id="about" class="about" aria-labelledby="about-title">
       <div class="about-intro">
         <div class="about-scene">
-          <img class="about-backdrop" src="./assets/about-backdrop.svg" alt="" width="1044" height="223">
+          <img class="about-backdrop" src="./assets/about-backdrop.svg" alt="" width="1044" height="223" data-backdrop-reveal="from-right">
           <h2 id="about-title" class="about-title">
             <img src="./assets/about-title.svg" alt="Обо мне" width="533" height="111">
           </h2>
@@ -128,9 +129,10 @@
     </section>
 
     <section id="contacts" class="contacts" aria-labelledby="contacts-title">
+      <span class="contacts-divider" aria-hidden="true" data-backdrop-reveal></span>
       <div class="contacts-content">
         <h2 id="contacts-title" class="contacts-title">
-          <img src="./assets/contact-title.svg" alt="Контакты" width="1144" height="223">
+          <img src="./assets/contact-title.svg" alt="Контакты" width="1144" height="223" data-backdrop-reveal>
         </h2>
         <div class="contacts-qr">
           <img src="./assets/contact-telegram.png" alt="QR-код для связи в Telegram" width="350" height="350">
