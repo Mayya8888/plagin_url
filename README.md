@@ -16,4 +16,4 @@
 
 Раздел «Обо мне» открывается из шапки и при прокрутке после портфолио. Физика тегов адаптирована из [Skill Pills Tray от Animorio](https://animorio.com/en/animations/designer-profile-with-skills-in-a-tray-that-tilts/). Текст и теги можно обновить в `index.html`.
 
-В разделе «Контакты» ссылка и QR-код ведут в Telegram. Движение света при прокрутке адаптировано из [Light Through the Blinds от Animorio](https://animorio.com/en/animations/light-through-the-blinds/).
+В разделе «Контакты» ссылка и QR-код ведут в Telegram. Фон с медленно движущимся светом сделан по мотивам [Breathing Gradient от Animorio](https://animorio.com/en/animations/breathing-gradient-background/).

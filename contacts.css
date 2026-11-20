@@ -1,14 +1,12 @@
 .contacts {
-  --contacts-progress: 0;
   --contacts-top: clamp(150px, 26.2svh, 225px);
-  --window-travel: 34%;
   --qr-size: 224px;
   position: relative;
   isolation: isolate;
   overflow: clip;
   min-block-size: 100svh;
   padding: var(--contacts-top) 16px 68px;
-  background: color-mix(in srgb, #eee, #e3e5e3 calc(100% * var(--contacts-progress)));
+  background: #eee;
 }
 
 .contacts::before {
@@ -29,26 +27,31 @@
   pointer-events: none;
 }
 
-/* The slatted projection and its travel are based on Light through the Blinds by Animorio. */
-.contacts-window {
+.contacts-light::before,
+.contacts-light::after {
   position: absolute;
-  inset-block-start: -28%;
-  inset-inline-start: -18%;
-  inline-size: 92vmax;
-  block-size: 70vmax;
-  background:
-    linear-gradient(90deg, transparent 47%, #35433c14 47% 53%, transparent 53%),
-    repeating-linear-gradient(180deg, #ffffff85 0 26px, #35433c0d 26px 44px);
-  filter: blur(6px);
-  mask-image:
-    linear-gradient(90deg, transparent, #000 14% 86%, transparent),
-    linear-gradient(180deg, transparent, #000 12% 88%, transparent);
-  mask-composite: intersect;
-  transform:
-    translate(calc(var(--window-travel) * var(--contacts-progress)), calc(10% * var(--contacts-progress)))
-    rotate(calc(-26deg - 20deg * var(--contacts-progress)))
-    skewX(calc(-8deg - 14deg * var(--contacts-progress)))
-    scaleY(calc(1 + .45 * var(--contacts-progress)));
+  inset: -16%;
+  content: "";
+}
+
+.contacts-light::before {
+  background: radial-gradient(ellipse at 66% 55%, #cad9eb99, #dbe4ef80 29%, transparent 65%);
+  animation: contacts-cool-light 24s ease-in-out infinite alternate;
+}
+
+.contacts-light::after {
+  background: radial-gradient(ellipse at 38% 38%, #ffffffed, #fafbfd8c 28%, transparent 64%);
+  animation: contacts-white-light 19s ease-in-out infinite alternate;
+}
+
+@keyframes contacts-cool-light {
+  from { transform: translate(9%, 5%) scale(.95); }
+  to { transform: translate(-12%, -7%) scale(1.13); }
+}
+
+@keyframes contacts-white-light {
+  from { transform: translate(-9%, -4%) scale(.9); }
+  to { transform: translate(11%, 6%) scale(1.16); }
 }
 
 .contacts-content {
@@ -107,11 +110,13 @@
 @media (max-width: 600px) {
   .contacts {
     --contacts-top: clamp(144px, 24svh, 186px);
-    --window-travel: 10%;
     --qr-size: clamp(184px, 54vw, 224px);
   }
+}
 
-  .contacts-window {
-    inset-inline-start: -68%;
+@media (prefers-reduced-motion: reduce) {
+  .contacts-light::before,
+  .contacts-light::after {
+    animation: none;
   }
 }
