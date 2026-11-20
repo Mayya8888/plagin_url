@@ -276,7 +276,7 @@ img {
 }
 
 .case-page {
-  inline-size: min(100% - 32px, 540px);
+  inline-size: min(100% - 32px, 800px);
   margin-inline: auto;
   padding-block: clamp(24px, 7vh, 64px);
 }
@@ -285,19 +285,19 @@ img {
   display: grid;
   justify-items: center;
   gap: 20px;
-  margin-block-start: clamp(32px, 8vh, 72px);
+  margin-block-start: clamp(24px, 5vh, 48px);
   text-align: center;
 }
 
 .case-project h1 {
   margin: 0;
-  font-size: clamp(30px, 7vw, 48px);
+  font-size: clamp(18px, 3vw, 24px);
   letter-spacing: -.03em;
 }
 
 .case-embed {
   display: block;
-  inline-size: min(100%, 404px);
+  inline-size: min(100%, 720px);
   block-size: auto;
   aspect-ratio: 404 / 316;
   border: 0;
